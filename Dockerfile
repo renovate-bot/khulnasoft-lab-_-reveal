@@ -7,7 +7,7 @@ RUN go mod download
 RUN go build -o ./cmd/reveal ./cmd/reveal
 
 # Release
-FROM alpine:3.18.0
+FROM alpine:3.18.2
 RUN apk -U upgrade --no-cache \
     && apk add --no-cache bind-tools ca-certificates
 COPY --from=builder /app/cmd/reveal/reveal /usr/local/bin/
